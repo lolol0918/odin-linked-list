@@ -50,6 +50,16 @@ export class LinkedList {
         this.size++;
     }
 
+    // O(1)
+    at(index) {
+        let curr = this.head;
+        for (let i = 0; i < index; i++) {
+            curr = curr.next;
+        }
+
+        return curr;
+    }
+
     head() {
         if(this.isEmpty()) {
             console.log("this list is empty.");

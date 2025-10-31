@@ -12,3 +12,4 @@ list.pop();
 list.pop();
 
 console.log(list.toString()); 
+console.log(list.contains("do")); 

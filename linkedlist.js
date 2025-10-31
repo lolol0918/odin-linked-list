@@ -19,6 +19,25 @@ export class LinkedList {
         return this.size;
     }
 
+    contains(value) {
+        if (this.isEmpty()) {
+            console.log("this list is empty.");
+            return;
+        }
+
+        let curr = this.head;
+
+        while (curr.next !== null) {
+
+            if(value === curr.value) {
+                return true;
+            }
+            curr = curr.next;
+        }
+
+        return false;
+    }
+
     // O(n)
     append(value) {
         const node = new Node(value);

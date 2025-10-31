@@ -50,8 +50,12 @@ export class LinkedList {
         this.size++;
     }
 
-    // O(1)
+    // O(n)
     at(index) {
+        if(index > this.getSize()) {
+            return null;
+        }
+        
         let curr = this.head;
         for (let i = 0; i < index; i++) {
             curr = curr.next;

@@ -10,4 +10,4 @@ list.append(0);
 
 list.toString();
 console.log(list.tail());
-console.log(list.at(2));
+console.log(list.at(7));

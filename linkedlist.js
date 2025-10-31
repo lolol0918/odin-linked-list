@@ -19,6 +19,23 @@ export class LinkedList {
         return this.size;
     }
 
+    append(value) {
+        const node = new Node(value);
+        if(this.isEmpty()) {
+            this.head = node;
+        } else {
+            let prev = this.head;
+
+            while(prev.next !== null) {
+                prev = prev.next;
+            }
+
+            prev.next  = node;
+        }
+
+        this.size++;
+    }
+
     prepend(value) {
         const node = new Node(value);
 
@@ -44,7 +61,7 @@ export class LinkedList {
 
             listValues += `(null)`;
 
-            return listValues;
+            console.log(listValues);
         }
     }
 }

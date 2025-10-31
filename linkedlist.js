@@ -27,7 +27,24 @@ export class LinkedList {
         }
         
         this.head = node;
-        
+
         this.size++;
+    }
+
+    toString() {
+        if (this.isEmpty()) {
+            console.log("This list is empty.");
+        } else {
+            let curr = this.head;
+            let listValues = '';
+            while(curr) {
+                listValues += `(${curr.value}) -> `;
+                curr = curr.next;
+            }
+
+            listValues += `(null)`;
+
+            return listValues;
+        }
     }
 }

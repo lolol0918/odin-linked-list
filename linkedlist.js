@@ -58,6 +58,21 @@ export class LinkedList {
         }
     }
 
+    tail() {
+        if(this.isEmpty()) {
+            console.log("this list is empty.");
+            return;
+        }
+
+        let curr = this.head;
+
+        while(curr.next !== null) {
+            curr = curr.next;
+        }
+
+        return curr;
+    }
+
     toString() {
         if (this.isEmpty()) {
             console.log("This list is empty.");

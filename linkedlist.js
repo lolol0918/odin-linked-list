@@ -22,20 +22,40 @@ export class LinkedList {
     contains(value) {
         if (this.isEmpty()) {
             console.log("this list is empty.");
-            return;
+            return false;
         }
 
         let curr = this.head;
 
         while (curr.next !== null) {
 
-            if(value === curr.value) {
+            if (value === curr.value) {
                 return true;
             }
             curr = curr.next;
         }
 
         return false;
+    }
+
+    find(value) {
+        if (this.isEmpty()) {
+            console.log("Cannot find — list is empty.");
+            return null;
+        }
+
+        let curr = this.head;
+        let index = 0;
+
+        while (curr !== null) {
+            if (curr.value === value) {
+                return index;
+            }
+            curr = curr.next;
+            index++;
+        }
+
+        return null;
     }
 
     // O(n)

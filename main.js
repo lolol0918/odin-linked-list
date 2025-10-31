@@ -13,3 +13,4 @@ list.pop();
 
 console.log(list.toString()); 
 console.log(list.contains("do")); 
+console.log(list.find("dog")); 

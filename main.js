@@ -9,3 +9,4 @@ list.prepend(30);
 list.append(0);
 
 list.toString();
+console.log(list.head);

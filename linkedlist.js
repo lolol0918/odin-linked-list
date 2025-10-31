@@ -19,6 +19,7 @@ export class LinkedList {
         return this.size;
     }
 
+    // O(n)
     append(value) {
         const node = new Node(value);
         if(this.isEmpty()) {
@@ -36,6 +37,7 @@ export class LinkedList {
         this.size++;
     }
 
+    // O(1)
     prepend(value) {
         const node = new Node(value);
 
@@ -46,6 +48,14 @@ export class LinkedList {
         this.head = node;
 
         this.size++;
+    }
+
+    head() {
+        if(this.isEmpty()) {
+            console.log("this list is empty.");
+        } else {
+            return this.head;
+        }
     }
 
     toString() {

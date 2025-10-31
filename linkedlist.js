@@ -22,16 +22,16 @@ export class LinkedList {
     // O(n)
     append(value) {
         const node = new Node(value);
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             this.head = node;
         } else {
             let prev = this.head;
 
-            while(prev.next !== null) {
+            while (prev.next !== null) {
                 prev = prev.next;
             }
 
-            prev.next  = node;
+            prev.next = node;
         }
 
         this.size++;
@@ -44,7 +44,7 @@ export class LinkedList {
         if (!this.isEmpty()) {
             node.next = this.head;
         }
-        
+
         this.head = node;
 
         this.size++;
@@ -52,7 +52,7 @@ export class LinkedList {
 
     // O(n)
     at(index) {
-        if(index > this.getSize()) {
+        if (index > this.getSize()) {
             return null;
         }
 
@@ -64,8 +64,35 @@ export class LinkedList {
         return curr;
     }
 
+    pop() {
+
+        if (this.isEmpty()) {
+            console.log("Cannot pop — list is empty.");
+            return null;
+        }
+
+        if (this.head.next === null) {
+            const value = this.head.value;
+            this.head = null;
+            this.size--;
+            return value;
+        }
+
+        let prev = this.head;
+        let curr = this.head.next;
+
+        while (curr.next !== null) {
+            prev = curr;
+            curr = curr.next;
+        }
+
+        prev.next = null;
+        this.size--;
+        return curr.value;
+    }
+
     head() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             console.log("this list is empty.");
         } else {
             return this.head;
@@ -73,14 +100,14 @@ export class LinkedList {
     }
 
     tail() {
-        if(this.isEmpty()) {
+        if (this.isEmpty()) {
             console.log("this list is empty.");
             return;
         }
 
         let curr = this.head;
 
-        while(curr.next !== null) {
+        while (curr.next !== null) {
             curr = curr.next;
         }
 
@@ -93,7 +120,7 @@ export class LinkedList {
         } else {
             let curr = this.head;
             let listValues = '';
-            while(curr) {
+            while (curr) {
                 listValues += `(${curr.value}) -> `;
                 curr = curr.next;
             }

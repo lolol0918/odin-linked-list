@@ -55,7 +55,7 @@ export class LinkedList {
         if(index > this.getSize()) {
             return null;
         }
-        
+
         let curr = this.head;
         for (let i = 0; i < index; i++) {
             curr = curr.next;
@@ -100,7 +100,7 @@ export class LinkedList {
 
             listValues += `(null)`;
 
-            console.log(listValues);
+            return listValues;
         }
     }
 }

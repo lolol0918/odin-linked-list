@@ -19,7 +19,15 @@ export class LinkedList {
         return this.size;
     }
 
-    append(value) {
+    prepend(value) {
+        const node = new Node(value);
 
+        if (!this.isEmpty()) {
+            node.next = this.head;
+        }
+        
+        this.head = node;
+        
+        this.size++;
     }
 }

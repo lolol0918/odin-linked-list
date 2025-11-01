@@ -153,6 +153,47 @@ export class LinkedList {
         return curr;
     }
 
+    removeAt(index) {
+        if (this.isEmpty()) {
+            console.log("this list is empty.");
+            return;
+        }
+
+        if (index < 0 || index >= this.getSize()) {
+            console.log("Invalid index.");
+            return;
+        }
+
+        if (index > this.getSize() - 1) {
+            console.log("The index is too big.");
+            return;
+        }
+
+        let removedValue;
+
+        if (index === 0) {
+            removedValue = this.head.value;
+            this.head = this.head.next;
+            this.size--;
+
+            return removedValue;
+        }
+
+        let prev = this.head;
+        let curr = this.head.next;
+
+        for (let i = 0; i < index - 1; i++) {
+            prev = curr;
+            curr = curr.next;
+        }
+
+        removedValue = curr.value;
+        prev.next = curr.next;
+        this.size--;
+
+        return removedValue;
+    }
+
     toString() {
         if (this.isEmpty()) {
             console.log("This list is empty.");

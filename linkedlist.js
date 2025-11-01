@@ -153,6 +153,37 @@ export class LinkedList {
         return curr;
     }
 
+    insertAt(value, index) {
+        if (index < 0 || index > this.getSize()) {
+            console.log("Invalid index.");
+            return;
+        }
+
+        // Case 1: inserting at the head (index 0)
+        if (index === 0) {
+            const node = new Node(value);
+            node.next = this.head;
+            this.head = node;
+            this.size++;
+            return;
+        }
+
+        let prev = this.head;
+        let curr = this.head.next;
+
+        for (let i = 0; i < index - 1; i++) {
+            prev = curr;
+            curr = curr.next;
+        }
+
+        const node = new Node(value);
+
+        prev.next = node;
+        node.next = curr;
+
+        return;
+    }
+
     removeAt(index) {
         if (this.isEmpty()) {
             console.log("this list is empty.");
